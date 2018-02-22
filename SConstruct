@@ -22,7 +22,7 @@ env = Environment(
 
 # MINGW BUILDING
 env_MINGW = env.Clone(tools = ['mingw'])
-env_MINGW.Replace(CCFLAGS = [''])  # turning off /nologo
+env_MINGW.Replace(CCFLAGS = ['-fdiagnostics-color=always'])  # turning off /nologo
 env_MINGW.Replace(CC = 'gcc')
 env_MINGW.Replace(CXX = 'g++')
 env_MINGW.Replace(CXXFLAGS = ['-std=c++11', '-g', '-fpermissive', '-Wno-narrowing'])
