@@ -31,6 +31,7 @@ env_MINGW.Replace(CXXFLAGS = ['-std=c++11', '-g', '-fpermissive', '-Wno-narrowin
 env_CL = env.Clone()
 env_CL.Replace(CCFLAGS = [''])  # turning off /nologo
 env_CL.Replace(LIBPATH = ['./libs/raylib/libs/win32/msvc'])
+#env_CL.Replace(LINKFLAGS = ['/VERBOSE'])
 
 
 if GetOption('toolchain') == 'mingw':
@@ -44,7 +45,7 @@ if GetOption('toolchain') == 'mingw':
         ] \
     )
 elif GetOption('toolchain') == 'cl':
-    print(env_CL.Dump())
+    #print(env_CL.Dump())
     env_CL.Object(target='./obj/main.o', source='./src/main.c')
 
     env_CL.Program( \
